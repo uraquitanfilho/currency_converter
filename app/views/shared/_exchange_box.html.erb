@@ -1,0 +1,46 @@
+                <div class="exchange_box">
+                  <div class="card">
+                    <div class="card-header text-center">
+                      Simulate your conversion
+                    </div>
+                    <div class="card-block">
+                      <%= form_tag("/exchange", method: "post", id: "exchange_form") do %>
+                        <div class="local_currency">
+
+
+                          <div class="form-group">
+                            <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Amount ($10)" step="any" required>
+                          </div>
+                        </div>
+
+
+                        <div class="form-row">
+                          <div class="form-group col-md-5">
+                            <label for="currency" class="title">Local</label>
+                            <%= select_tag "currency", options_for_select(currency_select, "BRL"), style:"width:80px", class: "form-control", id: "currency" %>
+                          </div>
+                          <div class="form-group col-md-2">
+                            <%= image_tag '/refresh.png', style:"margin-top:35px;margin-left:-5px",class:"img-responsive", id: "refresh"%>
+
+                          </div>
+                          <div class="form-group col-md-5">
+                            <label for="currency_destination" class="title">Destination</label>
+                            <%= select_tag "currency_destination", options_for_select(currency_select, "EUR"), style:"width:80px", class: "form-control", id: "currency_destination"%>
+                          </div>
+                        </div>
+
+
+                        <div class="destination_currency">
+
+                          <div class="form-group">
+                            <hr/>
+                            <input type="text" id="result" name="result" class="form-control" placeholder="Result" readonly>
+                          </div>
+                        </div>
+                        <div>
+                          <!--<button type="submit" class="btn btn-primary btn-exchange col-md-12">CONVERTER</button>-->
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
